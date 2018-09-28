@@ -33,6 +33,13 @@ public class FizzBuzzTest {
         };
     }
 
+    @DataProvider
+    public static Object[][] dataListProvider(){
+        return new Object[][]{
+                {1, "1"}, {2, "2"}, {3, "Fizz"}, {4, "4"}, {5, "Buzz"}, {6, "Fizz"}, {15, "FizzBuzz"}, {16, "16"}
+        };
+    }
+
     @Test
     public void firstTest() {
         assertTrue(true);
@@ -61,6 +68,15 @@ public class FizzBuzzTest {
     public void itShouldReturnFizzBuzzIfDivisibleByFive(final int input, final boolean expected){
         //Arrange Action
         boolean result = FizzBuzz.isFizzBuzz(input);
+        //Assertion
+        assertEquals(expected, result);
+    }
+
+    @Test
+    @UseDataProvider("dataListProvider")
+    public void itShouldGenerateTheCorrectReplacement(final int input, final String expected){
+        //Arrange Action
+        String result = FizzBuzz.getReplacement(input);
         //Assertion
         assertEquals(expected, result);
     }

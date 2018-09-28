@@ -16,4 +16,15 @@ public class FizzBuzz {
     public static boolean isFizzBuzz(int value) {
         return isFizz(value) && isBuzz(value);
     }
+
+    public static String getReplacement(int value) {
+        if (isFizzBuzz(value))
+            return "FizzBuzz";
+        if (isFizz(value))
+            return "Fizz";
+        if (isBuzz(value))
+            return "Buzz";
+        return Integer.toString(value);
+
+    }
 }
